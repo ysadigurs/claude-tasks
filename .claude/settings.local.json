@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(echo \"y\" | npx create-next-app@latest . --typescript --tailwind --app --import-alias=\"@/*\" --yes --no-git 2>&1)",
+      "Bash(which node:*)",
+      "Bash(export:*)",
+      "Bash(true:*)",
+      "Bash(grep:*)",
+      "Bash(node:*)",
+      "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash 2>&1)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\" && \\\\. \"$NVM_DIR/nvm.sh\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npx create-next-app@latest . --typescript --tailwind --app --import-alias=\"@/*\" --yes --no-git 2>&1)",
+      "Bash(mv:*)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\" && \\\\. \"$NVM_DIR/nvm.sh\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npm install next-auth@beta @auth/prisma-adapter @prisma/client prisma bcryptjs @types/bcryptjs zod react-hook-form @hookform/resolvers lucide-react clsx tailwind-merge class-variance-authority date-fns @ducanh2912/next-pwa 2>&1)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\" && \\\\. \"$NVM_DIR/nvm.sh\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npx shadcn@latest init --yes --defaults 2>&1)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\" && \\\\. \"$NVM_DIR/nvm.sh\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npx shadcn@latest add button input label textarea select dialog dropdown-menu badge avatar card separator --yes 2>&1)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\" && \\\\. \"$NVM_DIR/nvm.sh\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npx shadcn@latest add button --yes 2>&1)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\" && \\\\. \"$NVM_DIR/nvm.sh\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npm install @radix-ui/react-slot @radix-ui/react-label @radix-ui/react-select @radix-ui/react-dialog @radix-ui/react-dropdown-menu @radix-ui/react-avatar @radix-ui/react-separator 2>&1)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\" && \\\\. \"$NVM_DIR/nvm.sh\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npm install tw-animate-css 2>&1)",
+      "Bash(openssl rand:*)",
+      "Bash(head:*)",
+      "Bash(export PATH=\"$HOME/.nvm/versions/node/v22.22.0/bin:$PATH\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npx prisma generate 2>&1)",
+      "Bash(tail:*)",
+      "Bash(export PATH=\"$HOME/.nvm/versions/node/v22.22.0/bin:$PATH\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npm install prisma@5 @prisma/client@5 2>&1)",
+      "Bash(export PATH=\"$HOME/.nvm/versions/node/v22.22.0/bin:$PATH\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npx tsc --noEmit 2>&1)",
+      "Bash(export PATH=\"$HOME/.nvm/versions/node/v22.22.0/bin:$PATH\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npm run build 2>&1)",
+      "Bash(export PATH=\"$HOME/.nvm/versions/node/v22.22.0/bin:$PATH\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npx prisma migrate dev --name init 2>&1)",
+      "Bash(export PATH=\"$HOME/.nvm/versions/node/v22.22.0/bin:$PATH\" && cd \"/Users/ysadigurschi/Library/CloudStorage/OneDrive-SynamediaLtd/Documents/Dev/claude-tasks\" && npm run dev 2>&1)",
+      "Bash(cd:*)"
+    ]
+  }
+}
