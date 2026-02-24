@@ -3,10 +3,16 @@ import { TaskForm } from "@/components/tasks/TaskForm"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default async function NewTaskPage() {
-  const users = await prisma.user.findMany({
-    select: { id: true, name: true, email: true, image: true },
-    orderBy: { name: "asc" },
-  })
+  const [users, allTasks] = await Promise.all([
+    prisma.user.findMany({
+      select: { id: true, name: true, email: true, image: true },
+      orderBy: { name: "asc" },
+    }),
+    prisma.task.findMany({
+      select: { id: true, title: true },
+      orderBy: { title: "asc" },
+    }),
+  ])
 
   return (
     <div className="max-w-2xl space-y-6">
@@ -21,7 +27,7 @@ export default async function NewTaskPage() {
           <CardTitle>Task Details</CardTitle>
         </CardHeader>
         <CardContent>
-          <TaskForm users={users} />
+          <TaskForm users={users} allTasks={allTasks} />
         </CardContent>
       </Card>
     </div>

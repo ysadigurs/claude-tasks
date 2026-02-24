@@ -13,15 +13,21 @@ export default async function EditTaskPage({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
-  const [task, users] = await Promise.all([
+  const [task, users, allTasksRaw] = await Promise.all([
     getTaskById(id),
     prisma.user.findMany({
       select: { id: true, name: true, email: true, image: true },
       orderBy: { name: "asc" },
     }),
+    prisma.task.findMany({
+      select: { id: true, title: true },
+      orderBy: { title: "asc" },
+    }),
   ])
 
   if (!task) notFound()
+
+  const allTasks = allTasksRaw.filter((t) => t.id !== id)
 
   return (
     <div className="max-w-2xl space-y-6">
@@ -42,7 +48,7 @@ export default async function EditTaskPage({
           <CardTitle>Task Details</CardTitle>
         </CardHeader>
         <CardContent>
-          <TaskForm task={task} users={users} />
+          <TaskForm task={task} users={users} allTasks={allTasks} />
         </CardContent>
       </Card>
     </div>

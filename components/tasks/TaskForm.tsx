@@ -7,6 +7,7 @@ import { TaskWithOwners, SafeUser } from "@/types"
 import { createTask, updateTask } from "@/actions/task.actions"
 import { TaskStatus } from "@/types"
 import { OwnerSelect } from "./OwnerSelect"
+import { DependencySelect } from "./DependencySelect"
 
 const TASK_STATUSES = Object.values(TaskStatus)
 import { Button } from "@/components/ui/button"
@@ -26,6 +27,7 @@ import { useState } from "react"
 interface TaskFormProps {
   task?: TaskWithOwners
   users: SafeUser[]
+  allTasks?: { id: string; title: string }[]
 }
 
 function toDatetimeLocal(date: Date | null | undefined): string {
@@ -33,7 +35,7 @@ function toDatetimeLocal(date: Date | null | undefined): string {
   return format(new Date(date), "yyyy-MM-dd'T'HH:mm")
 }
 
-export function TaskForm({ task, users }: TaskFormProps) {
+export function TaskForm({ task, users, allTasks = [] }: TaskFormProps) {
   const [serverError, setServerError] = useState<string | null>(null)
   const isEdit = !!task
 
@@ -51,6 +53,7 @@ export function TaskForm({ task, users }: TaskFormProps) {
       dueAt: toDatetimeLocal(task?.dueAt),
       status: task?.status ?? TaskStatus.SCHEDULED,
       ownerIds: task?.owners.map((o: { userId: string }) => o.userId) ?? [],
+      dependencyIds: task?.dependsOn.map((d) => d.dependencyId) ?? [],
     },
   })
 
@@ -137,6 +140,21 @@ export function TaskForm({ task, users }: TaskFormProps) {
         {errors.ownerIds && (
           <p className="text-xs text-destructive">{errors.ownerIds.message}</p>
         )}
+      </div>
+
+      <div className="space-y-2">
+        <Label>Dependencies</Label>
+        <Controller
+          name="dependencyIds"
+          control={control}
+          render={({ field }) => (
+            <DependencySelect
+              tasks={allTasks}
+              value={field.value ?? []}
+              onChange={field.onChange}
+            />
+          )}
+        />
       </div>
 
       {serverError && (

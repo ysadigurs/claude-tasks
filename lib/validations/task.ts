@@ -8,6 +8,7 @@ export const taskSchema = z.object({
   dueAt: z.string().optional(),
   status: z.nativeEnum(TaskStatus),
   ownerIds: z.array(z.string()).min(1, "At least one owner is required"),
+  dependencyIds: z.array(z.string()).optional(),
 })
 
 export const updateStatusSchema = z.object({

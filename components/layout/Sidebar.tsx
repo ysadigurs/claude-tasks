@@ -1,10 +1,11 @@
 import Link from "next/link"
-import { LayoutDashboard, PlusCircle } from "lucide-react"
+import { LayoutDashboard, PlusCircle, GitBranch } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const links = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/tasks/new", label: "New Task", icon: PlusCircle },
+  { href: "/graph", label: "Graph View", icon: GitBranch },
 ]
 
 export function Sidebar() {

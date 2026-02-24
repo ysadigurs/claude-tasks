@@ -33,15 +33,26 @@ model User {
 }
 
 model Task {
-  id          String      @id @default(cuid())
-  title       String
-  description String?     @db.Text
-  scheduledAt DateTime?
-  dueAt       DateTime?
-  status      TaskStatus  @default(SCHEDULED)
-  owners      TaskOwner[]
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  id           String           @id @default(cuid())
+  title        String
+  description  String?          @db.Text
+  scheduledAt  DateTime?
+  dueAt        DateTime?
+  status       TaskStatus       @default(SCHEDULED)
+  owners       TaskOwner[]
+  dependsOn    TaskDependency[] @relation("dependent")
+  dependencies TaskDependency[] @relation("dependency")
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+}
+
+model TaskDependency {
+  dependentId  String
+  dependencyId String
+  dependent    Task   @relation("dependent",  fields: [dependentId],  references: [id], onDelete: Cascade)
+  dependency   Task   @relation("dependency", fields: [dependencyId], references: [id], onDelete: Cascade)
+
+  @@id([dependentId, dependencyId])
 }
 
 model TaskOwner {
