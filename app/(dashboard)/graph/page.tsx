@@ -12,7 +12,7 @@ export default async function GraphPage() {
           Visual overview of tasks and their dependencies.
         </p>
       </div>
-      <div className="min-h-[600px] flex-1 rounded-lg border">
+      <div className="min-h-[600px] flex-1">
         <TaskGraph tasks={tasks} />
       </div>
     </div>
